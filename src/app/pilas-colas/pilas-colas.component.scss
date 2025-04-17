@@ -1,0 +1,67 @@
+
+.container-table{
+    overflow: auto;
+}
+
+.minimal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    color: #333;
+    overflow: auto;
+  }
+
+  .minimal-table th,
+  .minimal-table td {
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .minimal-table thead {
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    font-weight: normal;
+  }
+
+  .minimal-table tbody tr {
+    border-bottom: 1px solid #eee;
+  }
+
+  .minimal-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .minimal-table tbody tr:hover {
+    background-color: #f9f9f9; 
+  }
+
+  .minimal-table th:first-child,
+  .minimal-table td:first-child {
+    text-align: center; 
+  }
+
+  .minimal-table .cambios {
+    text-align: right; 
+    color: #007bff; 
+  }
+
+  .minimal-table .ver-accion {
+    text-align: center;
+  }
+
+  .minimal-table .ver-button {
+    background: none;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .minimal-table .ver-button:hover {
+    background-color: #007bff;
+    color: white;
+  }
