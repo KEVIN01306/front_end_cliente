@@ -2,6 +2,11 @@ ion-menu-button {
   color: var(--ion-color-primary);
 }
 
+ion-header{
+  box-shadow: 5px 0px 10px rgb(214, 214, 214);
+  border-bottom: 1px solid #c4c4c4;
+}
+
 #container {
   padding-top: 20px;
   text-align: center;

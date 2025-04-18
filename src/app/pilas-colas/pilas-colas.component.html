@@ -1,27 +1,32 @@
+<ion-segment [value]="selectedSegment()">
+  <ion-segment-button value="stacks" (click)="selectSegment('stacks')">
+    <ion-label>Stacks</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="queues" (click)="selectSegment('queues')">
+    <ion-label>Queues</ion-label>
+  </ion-segment-button>
+</ion-segment>
 
-<mat-card style="background-color: white; border: 0; box-shadow: none;" >
-  <mat-card-header>
-    <h1> Pilas Report</h1>
-  </mat-card-header>
+<mat-card *ngIf="selectedSegment()  == 'stacks'" style="background-color: white; border: 0; box-shadow: none;" >
   <mat-card-content class="contentTableTheme">
     <table datatable [dtOptions]="dtoptions" class="DatatableTheme">
       <thead>
         <tr class="headTable">
-          <th>Columna 1</th>
-          <th>Columna 2</th>
-          <th>Columna 3</th>
-          <th>Columna 4</th>
-          <th>Columna 4</th>
-          <th>Columna 4</th>
+          <th>Id</th>
+          <th>Date</th>
+          <th>Changes</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data"> 
-          <td>{{ item.columna1 }}</td>
-          <td>{{ item.columna2 }}</td>
-          <td class="cambios">{{ item.columna3 }}</td>
-          <td>{{ item.columna3 }}</td>
-          <td><ion-chip color="success">Success</ion-chip></td>
+        <tr *ngFor="let item of stacksData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td class="cambios">+{{ item.changes }}</td>
+          <td><ion-chip color="tertiary">{{ item.type }}</ion-chip></td>
+          <td><ion-chip color="success">Active</ion-chip></td>
           <td class="ver-accion"><a href="" style="text-decoration: none;"><button class="ver-button">Ver</button></a></td>
         </tr>
       </tbody>
@@ -29,3 +34,29 @@
   </mat-card-content>
 </mat-card>
 
+<mat-card *ngIf="selectedSegment() == 'queues'" style="background-color: white; border: 0; box-shadow: none;" >
+  <mat-card-content class="contentTableTheme">
+    <table datatable [dtOptions]="dtoptions" class="DatatableTheme">
+      <thead>
+        <tr class="headTable">
+          <th>Id</th>
+          <th>Date</th>
+          <th>Changes</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of queuesData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td class="cambios">+{{ item.changes }}</td>
+          <td><ion-chip color="primary">{{ item.type }}</ion-chip></td>
+          <td><ion-chip color="success">Active</ion-chip></td>
+          <td class="ver-accion"><a href="" style="text-decoration: none;"><button class="ver-button">Ver</button></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

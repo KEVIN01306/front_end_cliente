@@ -3,27 +3,32 @@
     display: flex !important;
     gap: 10px !important;
     justify-content: flex-end !important;
+    padding: 0;
 }
 
 .pagination li button {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0.4rem;
     background-color: #ffffff;
     color: #8a8a8a;
     border-radius: 10px;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     cursor: pointer;
     align-items: center;
-    margin: 2px;
+    margin: 1px;
+    color: #007bff;
+    border-bottom: #007bff 1px solid;
+    transition: 0.5s;
+    transition: border,0.5s;
 }
 
 .pagination li button:hover {
-    color: #007bff;
-    border: #007bff 1px solid;
-    transform: none;
+    background-color: #dbe9f85e;
+    border: none;
 }
 
 .DatatableTheme{
@@ -43,10 +48,30 @@
     background-color: #f9f9f9; 
 }
 
+.DatatableTheme tbody tr td{
+    text-align: center !important;
+}
+
 .DatatableTheme .cambios {
-    text-align: right; 
+    text-align: right !important; 
+    padding-right: 1rem;
     color: #007bff; 
 }
+
+.DatatableTheme .ver-accion {
+    text-align: center;
+}
+
+.DatatableTheme .ver-accion .ver-button {
+    background: none;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
 
 .headTable th span font {
@@ -56,6 +81,7 @@
 
 #DataTables_Table_0_wrapper div{
     margin-bottom: 10px;
+    overflow: auto;
 }
 .dt-info{
     margin: 1rem;
@@ -65,3 +91,16 @@
 .DatatableTheme{
     overflow: auto;
 }
+
+.headTable th{
+    text-align: center !important;
+}
+
+
+
+.form-control,.form-select{
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    color: #007bff;
+}
+
