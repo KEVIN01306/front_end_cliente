@@ -87,9 +87,8 @@
     margin: 1rem;
 }
 
-
-.DatatableTheme{
-    overflow: auto;
+.dt-layout-table{
+    overflow: auto !important;
 }
 
 .headTable th{
