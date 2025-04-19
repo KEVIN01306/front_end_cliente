@@ -15,50 +15,47 @@
     <ion-breadcrumb (click)="returnTable()">{{ type }} of Tables</ion-breadcrumb>
     <ion-breadcrumb (click)="here()">{{ type }} Detail</ion-breadcrumb>
   </ion-breadcrumbs>
-  <p>
-    info-pilas-colas works!
-  </p>
-
-
-  <p>type: {{type}}</p>
-  <p>id: {{id}}</p>
-
 
   <ion-grid>
     <ion-row>
-      <ion-col>1</ion-col>
-      <ion-col>2</ion-col>
-      <ion-col>3</ion-col>
+      <ion-col size="12" size-md="4">{{type}}</ion-col>
+      <ion-col size="12" size-md="4">{{id}}</ion-col>
+      <ion-col size="12" size-md="4">3</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row style="display: flex; justify-content: center;">
+      <ion-col size="12" size-md="4" style="display: flex; justify-content: center;">
+        <div class="carrusel">
+          <div #grandeElement class="grande">
+            <img src="../assets/icon/logo.png" alt="imagen 1">
+            <img src="../assets/icon/logo.png" alt="imagen 2">
+            <img src="../assets/icon/logo.png" alt="imagen 3">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            <img src="../assets/icon/logo.png" alt="imagen 4">
+            </div>
+          <ul #puntosList class="puntos">
+            <li #puntoElement class="punto activo"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+            <li #puntoElement class="punto"></li>
+          </ul>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
   
-  <ion-grid>
-    <ion-row>
-      <ion-col>1</ion-col>
-      <ion-col>2</ion-col>
-      <ion-col>3</ion-col>
-      <ion-col>4</ion-col>
-      <ion-col>5</ion-col>
-      <ion-col>6</ion-col>
-    </ion-row>
-  </ion-grid>
-  
-  <ion-grid>
-    <ion-row>
-      <ion-col>1</ion-col>
-      <ion-col>2</ion-col>
-      <ion-col>3</ion-col>
-      <ion-col>4</ion-col>
-      <ion-col>5</ion-col>
-      <ion-col>6</ion-col>
-      <ion-col>7</ion-col>
-      <ion-col>8</ion-col>
-      <ion-col>9</ion-col>
-      <ion-col>10</ion-col>
-      <ion-col>11</ion-col>
-      <ion-col>12</ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-content>
 
 <!-- 

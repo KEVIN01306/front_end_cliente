@@ -1,6 +1,85 @@
 ion-col {
-    background-color: #9fb0ff;
+    background-color: none;
     border: solid 1px #fff;
-    color: #fff;
+    color: #9e9c9c;
     text-align: center;
   }
+
+.carrusel {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 15px rgb(224, 224, 224);
+    border-radius: 15px;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.carrusel .grande {
+    width: 1000%;
+    background-color: transparent;
+    border-radius: 15px;
+
+    justify-content: space-between;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 2em;
+    transition: all 1s ease;
+    transform: translateX(0%);
+}
+
+.carrusel img {
+    width: calc(100% / 10 - 2em);
+
+    background-color: transparent;
+    box-shadow: 5px 5px 15px rgb(224, 224, 224);
+
+    border-radius: 15px;
+}
+
+.carrusel .puntos{
+    width: 100%;
+    padding: .4em;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0 0;
+    list-style-type:none;
+}
+
+.carrusel .punto {
+    width: 2em;
+    height: 2em;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 15px rgb(224, 224, 224);
+    border-radius: 15px;
+    margin: 1em;
+    cursor: pointer;
+    border-bottom: #007bff solid 2px; 
+    transition: all 0.4s ease; 
+  }
+  
+  .carrusel .punto:hover {
+    background-color: #007bff;
+    border: #007bff solid 2px; 
+    border-bottom: #007bff solid 2px; 
+    transition: all 0.4s ease; 
+  }
+
+.carrusel .punto.activo{
+    background-color: #007bff;
+}
+
+ion-breadcrumb{
+    color: #80bdff;
+}
+
+ion-breadcrumb:hover{
+    text-decoration: underline;
+}
+
+.breadcrumb-active{
+    color: #007bff;
+}
