@@ -1,10 +1,18 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Router} from '@angular/router'; 
 import { MatCardModule } from '@angular/material/card';
 import { Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { IonLabel, IonSegment, IonSegmentButton, IonChip } from '@ionic/angular/standalone';
 import { DataTablesModule } from 'angular-datatables';
 
+
+
+
+interface StackItem { // Define an interface for your data structure
+  id: string;
+  type: string;
+}
 @Component({
   selector: 'app-pilas-colas',
   templateUrl: './pilas-colas.component.html',
@@ -16,6 +24,7 @@ export class PilasColasComponent implements OnInit, OnDestroy {
   dtoptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
   selectedSegment = signal<string>('stacks');
+  folder: string = '/folder/';
 
   stacksData: any[] = [
     { "id": "124", "date": "1-12-2025", "changes": 5, "type": "Stack" },
@@ -43,7 +52,7 @@ export class PilasColasComponent implements OnInit, OnDestroy {
     { "id": "543", "date": "18-05-2026", "changes": 10, "type": "Queue" },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.dtoptions = {
@@ -60,5 +69,9 @@ export class PilasColasComponent implements OnInit, OnDestroy {
   selectSegment(segmentValue: string) {
     this.selectedSegment.set(segmentValue);
     console.log(segmentValue)
+  }
+
+  verDetalle({ type, id }: { type: string, id: string }) { // Explicitly type the parameters
+    this.router.navigate([`/folder/pilas-colas/${type}/${id}`]);
   }
 }

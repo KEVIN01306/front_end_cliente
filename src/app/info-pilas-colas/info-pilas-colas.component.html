@@ -1,0 +1,74 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ type }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <ion-breadcrumbs>
+    <ion-breadcrumb [attr.href]="'/folder/' + category">{{ type }} of Tables</ion-breadcrumb>
+    <ion-breadcrumb [attr.href]="'/folder/' + type + id">{{ type }} Detail</ion-breadcrumb>
+  </ion-breadcrumbs>
+  <p>
+    info-pilas-colas works!
+  </p>
+
+
+  <p>type: {{type}}</p>
+  <p>id: {{id}}</p>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>1</ion-col>
+      <ion-col>2</ion-col>
+      <ion-col>3</ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>1</ion-col>
+      <ion-col>2</ion-col>
+      <ion-col>3</ion-col>
+      <ion-col>4</ion-col>
+      <ion-col>5</ion-col>
+      <ion-col>6</ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>1</ion-col>
+      <ion-col>2</ion-col>
+      <ion-col>3</ion-col>
+      <ion-col>4</ion-col>
+      <ion-col>5</ion-col>
+      <ion-col>6</ion-col>
+      <ion-col>7</ion-col>
+      <ion-col>8</ion-col>
+      <ion-col>9</ion-col>
+      <ion-col>10</ion-col>
+      <ion-col>11</ion-col>
+      <ion-col>12</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- 
+  <ion-button id="open-modal" expand="block">Open Sheet Modal</ion-button>
+
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <ion-content>
+        
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+-->
