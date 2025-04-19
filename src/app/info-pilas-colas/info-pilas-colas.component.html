@@ -11,9 +11,9 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-breadcrumbs>
-    <ion-breadcrumb [attr.href]="'/folder/' + category">{{ type }} of Tables</ion-breadcrumb>
-    <ion-breadcrumb [attr.href]="'/folder/' + type + id">{{ type }} Detail</ion-breadcrumb>
+  <ion-breadcrumbs style="cursor: pointer;">
+    <ion-breadcrumb (click)="returnTable()">{{ type }} of Tables</ion-breadcrumb>
+    <ion-breadcrumb (click)="here()">{{ type }} Detail</ion-breadcrumb>
   </ion-breadcrumbs>
   <p>
     info-pilas-colas works!

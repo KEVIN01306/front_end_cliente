@@ -27,7 +27,7 @@ export class InfoPilasColasComponent implements OnInit {
   public type: string | null = null;
   public id: string | null = null;
   private activatedRoute = inject(ActivatedRoute);
-  constructor(private route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.category = this.activatedRoute.snapshot.paramMap.get('category') as string;
@@ -35,4 +35,13 @@ export class InfoPilasColasComponent implements OnInit {
     this.type = this.activatedRoute.snapshot.paramMap.get('type') as string;
     console.log(this.id,this.type,this.category)
   }
+
+  returnTable() { // Explicitly type the parameters
+    this.router.navigate([`/folder/${this.category}`]);
+  }
+
+  here() { // Explicitly type the parameters
+    this.router.navigate([`/folder/${this.category}/${this.type}/${this.id}`]);
+  }
 }
+
