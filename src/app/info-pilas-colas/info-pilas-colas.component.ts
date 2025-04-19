@@ -49,7 +49,7 @@ export class InfoPilasColasComponent implements OnInit, AfterViewInit  {
         const punto = puntoElement.nativeElement;
         this.renderer.listen(punto, 'click', () => {
           let posicion = i;
-          let operacion = posicion * -10;
+          let operacion = posicion * -25;
           this.renderer.setStyle(grande, 'transform', `translateX(${operacion}%)`);
 
           this.puntoElements.forEach((cadaPunto) =>{
