@@ -5,12 +5,15 @@ import { Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { IonLabel, IonSegment, IonSegmentButton, IonChip } from '@ionic/angular/standalone';
 import { DataTablesModule } from 'angular-datatables';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
 
 
 
 
 interface StackItem { // Define an interface for your data structure
   id: string;
+  date: string;
+  changes: number;
   type: string;
 }
 @Component({
@@ -18,14 +21,17 @@ interface StackItem { // Define an interface for your data structure
   templateUrl: './pilas-colas.component.html',
   styleUrls: ['./pilas-colas.component.scss'],
   standalone: true,
-  imports: [MatCardModule, CommonModule, IonLabel, IonSegment, IonSegmentButton, IonChip, DataTablesModule],
+  imports: [MatCardModule, CommonModule, IonLabel, IonSegment, IonSegmentButton, IonChip, DataTablesModule,HttpClientModule],
 })
 export class PilasColasComponent implements OnInit, OnDestroy {
   dtoptions: any = {};
+  data: any;
+  error: any;
   dtTrigger: Subject<any> = new Subject<any>();
   selectedSegment = signal<string>('stacks');
   folder: string = '/folder/';
-
+  stacksData: StackItem[] = [];
+/*
   stacksData: any[] = [
     { "id": "124", "date": "1-12-2025", "changes": 5, "type": "Stack" },
     { "id": "567", "date": "15-01-2025", "changes": 12, "type": "Stack" },
@@ -42,7 +48,7 @@ export class PilasColasComponent implements OnInit, OnDestroy {
     { "id": "456", "date": "02-12-2025", "changes": 13, "type": "Stack" },
     { "id": "456", "date": "02-12-2025", "changes": 13, "type": "Stack" },
     { "id": "456", "date": "02-12-2025", "changes": 13, "type": "Stack" },
-  ];
+  ];*/
 
   queuesData: any[] = [
     { "id": "987", "date": "10-01-2026", "changes": 20, "type": "Queue" },
@@ -52,7 +58,7 @@ export class PilasColasComponent implements OnInit, OnDestroy {
     { "id": "543", "date": "18-05-2026", "changes": 10, "type": "Queue" },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private http:HttpClient) {}
 
   ngOnInit(): void {
     this.dtoptions = {
@@ -60,8 +66,24 @@ export class PilasColasComponent implements OnInit, OnDestroy {
       lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']]
     };
     this.dtTrigger.next(null);
+    this.stackQuery();
   }
 
+  stackQuery(){
+    this.http.get<any>('http://localhost:8080/api/registros/obtenerTodosLosRegistros')
+      .subscribe(
+        (respose) => {
+          this.stacksData = respose;
+          console.log('datos de la api',this.stacksData)
+          this.dtTrigger.next(null);
+        },
+        (error) =>{
+          this.error = error;
+          console.error('error en la peticion: ', this.error);
+        }
+      )
+  }
+  
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }

@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { PilasColasComponent } from '../pilas-colas/pilas-colas.component';
 import { EjemploComponent } from '../ejemplo/ejemplo.component';
 import { InfoPilasColasComponent } from '../info-pilas-colas/info-pilas-colas.component';
+import { StackComponent } from '../stack/stack.component';
+import { QueueComponent } from '../queue/queue.component';
+import { AlgorithmsComponent } from '../algorithms/algorithms.component';
 import { NgSwitch,NgSwitchCase,NgSwitchDefault } from '@angular/common';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,
   IonFab,
@@ -19,7 +22,10 @@ import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,
   imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, NgSwitch,NgSwitchCase,NgSwitchDefault,PilasColasComponent,InfoPilasColasComponent,EjemploComponent,  IonFab,
     IonFabButton,
     IonFabList,
-    IonIcon,],
+    IonIcon,
+    StackComponent,
+    QueueComponent,
+    AlgorithmsComponent],
 })
 export class FolderPage implements OnInit {
   public folder!: string;

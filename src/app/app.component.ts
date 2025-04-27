@@ -12,7 +12,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['app.component.scss'],
   standalone: true,
   imports: [
-    RouterModule, // Importa RouterModule aquí
+    RouterModule,
     IonApp,
     IonSplitPane,
     IonMenu,
@@ -30,7 +30,9 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   public appPages = [
-    { title: 'Stacks-Queues', url: '/folder/pilas-colas', icon: 'git-branch', active: false },
+    { title: 'Panel', url: '/folder/panel', icon: 'git-branch', active: false },
+    { title: 'Stacks', url: '/folder/stack', icon: 'git-branch', active: false },
+    { title: 'Queues', url: '/folder/queue', icon: 'git-branch', active: false },
     { title: 'ejemplo', url: '/folder/ejemplo', icon: 'git-branch', active: false },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
@@ -44,14 +46,27 @@ export class AppComponent implements OnInit, OnDestroy {
     this.routerSubscription = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-      this.appPages.forEach(page => page.active = false); // Reset all active states
-      if (event.urlAfterRedirects.startsWith('/folder/pilas-colas')) {
-        const stacksQueuesPage = this.appPages.find(page => page.url === '/folder/pilas-colas');
-        if (stacksQueuesPage) {
-          stacksQueuesPage.active = true;
+      this.appPages.forEach(page => page.active = false); 
+      if (event.urlAfterRedirects.startsWith('/folder/panel')) {
+        const ejemploPage = this.appPages.find(page => page.url === '/folder/panel');
+        if (ejemploPage) {
+          ejemploPage.active = true;
         }
-      } else if (event.urlAfterRedirects.startsWith('/folder/ejemplo')) {
+      }
+      else if (event.urlAfterRedirects.startsWith('/folder/ejemplo')) {
         const ejemploPage = this.appPages.find(page => page.url === '/folder/ejemplo');
+        if (ejemploPage) {
+          ejemploPage.active = true;
+        }
+      }
+      else if (event.urlAfterRedirects.startsWith('/folder/stack')) {
+        const ejemploPage = this.appPages.find(page => page.url === '/folder/stack');
+        if (ejemploPage) {
+          ejemploPage.active = true;
+        }
+      }
+      else if (event.urlAfterRedirects.startsWith('/folder/queue')) {
+        const ejemploPage = this.appPages.find(page => page.url === '/folder/queue');
         if (ejemploPage) {
           ejemploPage.active = true;
         }

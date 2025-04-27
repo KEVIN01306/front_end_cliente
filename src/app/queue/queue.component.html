@@ -1,0 +1,29 @@
+
+<mat-card style="background-color: white; border: 0; box-shadow: none;">
+  <mat-card-content class="contentTableTheme">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="DatatableTheme">
+      <thead>
+        <tr class="headTable">
+          <th>Id</th>
+          <th>Date</th>
+          <th>Changes</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of stacksData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td class="cambios">+{{ item.changes }}</td>
+          <td><ion-chip color="tertiary">{{ item.type }}</ion-chip></td>
+          <td><ion-chip color="success">Active</ion-chip></td>
+          <td class="ver-accion">
+            <button class="ver-button" (click)="verDetalle({ type: item.type, id: item.id })">See</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
