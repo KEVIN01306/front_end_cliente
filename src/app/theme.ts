@@ -1,4 +1,4 @@
-export interface StackItem { // Define an interface for your data structure
+export interface StackItem {
     id: string;
     date: string;
     changes: number;

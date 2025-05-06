@@ -6,8 +6,9 @@ import { Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { IonLabel, IonSegment, IonSegmentButton, IonChip } from '@ionic/angular/standalone';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
-import { StackItem } from '../theme';
+import { HttpClientModule } from '@angular/common/http';
+import { DataForTables } from '../core/dataForTables';
+import { itemData } from '../interfaces/item-data.interface';
 
 @Component({
   selector: 'app-queue',
@@ -22,10 +23,10 @@ export class QueueComponent  implements OnInit {
 
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
-  stacksData: StackItem[] = [];
+  stacksData: itemData[] = [];
   error: any;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router,private dataForTableService: DataForTables) {}
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -40,7 +41,7 @@ export class QueueComponent  implements OnInit {
 
   stackQuery() {
     const body = { type: "Queue"}
-    this.http.post<StackItem[]>('http://localhost:8080/api/registros/buscarPorTipo',body)
+    this.dataForTableService.obtenerRegistroPorTipo(body)
       .subscribe(
         async (response) => {
           this.stacksData = response;
