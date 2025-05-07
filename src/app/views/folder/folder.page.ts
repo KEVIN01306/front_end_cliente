@@ -1,11 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PilasColasComponent } from '../../components/pilas-colas/pilas-colas.component';
-import { EjemploComponent } from '../../components/ejemplo/ejemplo.component';
 import { InfoPilasColasComponent } from '../info-pilas-colas/info-pilas-colas.component';
-import { StackComponent } from '../../components/stack/stack.component';
-import { QueueComponent } from '../../components/queue/queue.component';
+import { viewTableComponent } from 'src/app/components/viewTable/viewTable.component';
 import { AlgorithmsComponent } from '../../components/algorithms/algorithms.component';
+import { HttpClientModule } from '@angular/common/http'
 import { NgSwitch,NgSwitchCase,NgSwitchDefault } from '@angular/common';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,
   IonFab,
@@ -19,12 +17,12 @@ import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,
   templateUrl: './folder.page.html',
   styleUrls: ['./folder.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, NgSwitch,NgSwitchCase,NgSwitchDefault,PilasColasComponent,InfoPilasColasComponent,EjemploComponent,  IonFab,
+  imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, NgSwitch,NgSwitchCase,NgSwitchDefault,InfoPilasColasComponent,  IonFab,
     IonFabButton,
     IonFabList,
     IonIcon,
-    StackComponent,
-    QueueComponent,
+    viewTableComponent,
+    HttpClientModule,
     AlgorithmsComponent],
 })
 export class FolderPage implements OnInit {

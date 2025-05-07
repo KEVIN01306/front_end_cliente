@@ -20,7 +20,7 @@
           <td><ion-chip color="tertiary">{{ item.type }}</ion-chip></td>
           <td><ion-chip color="success">Active</ion-chip></td>
           <td class="ver-accion">
-            <button class="ver-button" (click)="this.verDetalleService.verDetalle({ type: item.type, id: item.id })">See</button>
+            <button class="ver-button" (click)="this.verDetalleService.verDetalle({carpet: this.typeTableData, type: item.type, id: item.id })">See</button>
           </td>
         </tr>
       </tbody>

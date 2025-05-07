@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd, RouterModule } from '@angular/router'; // Importa RouterModule
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import * as allIcons from 'ionicons/icons';
@@ -33,7 +33,6 @@ export class AppComponent implements OnInit, OnDestroy {
     { title: 'Panel', url: '/folder/panel', icon: 'git-branch', active: false },
     { title: 'Stacks', url: '/folder/stack', icon: 'git-branch', active: false },
     { title: 'Queues', url: '/folder/queue', icon: 'git-branch', active: false },
-    { title: 'ejemplo', url: '/folder/ejemplo', icon: 'git-branch', active: false },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   private routerSubscription!: Subscription;
@@ -49,12 +48,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.appPages.forEach(page => page.active = false); 
       if (event.urlAfterRedirects.startsWith('/folder/panel')) {
         const ejemploPage = this.appPages.find(page => page.url === '/folder/panel');
-        if (ejemploPage) {
-          ejemploPage.active = true;
-        }
-      }
-      else if (event.urlAfterRedirects.startsWith('/folder/ejemplo')) {
-        const ejemploPage = this.appPages.find(page => page.url === '/folder/ejemplo');
         if (ejemploPage) {
           ejemploPage.active = true;
         }

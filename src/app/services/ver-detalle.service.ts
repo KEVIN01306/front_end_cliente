@@ -8,8 +8,9 @@ export class VerDetalleService {
 
   constructor(private router: Router) { }
 
-  verDetalle({ type, id }: { type: string, id: string }) {
-    this.router.navigate([`/folder/stack/${type}/${id}`]);
+  verDetalle({carpet, type, id }: {carpet: String, type: string, id: string }) {
+    this.router.navigate([`/folder/${carpet}/${type}/${id}`]);
+    console.log(carpet)
   }
 
 }

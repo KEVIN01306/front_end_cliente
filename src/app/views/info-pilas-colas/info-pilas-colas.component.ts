@@ -2,12 +2,10 @@ import { Component, inject, OnInit, AfterViewInit, Renderer2, ElementRef, ViewCh
 import { Router, ActivatedRoute } from '@angular/router';
 import { IonButtons, IonMenuButton,
   IonContent,
-  IonButton,
   IonTitle,
   IonToolbar,
   IonHeader,
-  IonBreadcrumb, IonBreadcrumbs,
-  IonModal,IonCol, IonGrid, IonRow
+  IonBreadcrumb, IonBreadcrumbs,IonCol, IonGrid, IonRow
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -16,11 +14,9 @@ import { IonButtons, IonMenuButton,
   styleUrls: ['./info-pilas-colas.component.scss'],
   standalone: true,
   imports: [IonButtons, IonMenuButton,IonContent,
-    IonButton,
     IonTitle,
     IonToolbar,
-    IonHeader,
-    IonModal,IonCol, IonGrid, IonRow,IonBreadcrumb, IonBreadcrumbs],
+    IonHeader,IonCol, IonGrid, IonRow,IonBreadcrumb, IonBreadcrumbs],
 })
 export class InfoPilasColasComponent implements OnInit, AfterViewInit  {
   public category: string | null = null;
