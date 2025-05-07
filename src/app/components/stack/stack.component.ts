@@ -1,13 +1,14 @@
 
 import { Component, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
-import { Router} from '@angular/router'; 
+import { VerDetalleService } from 'src/app/services/ver-detalle.service';
 import { MatCardModule } from '@angular/material/card';
 import { Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { IonLabel, IonSegment, IonSegmentButton, IonChip } from '@ionic/angular/standalone';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
-import { StackItem } from '../theme';
+import { ItemData } from 'src/app/interfaces/item-data.interface';
+import { DataForTableService } from 'src/app/services/data-for-table.service';
+import { configTable } from 'src/app/core/dataTable.config'
 
 
 @Component({
@@ -15,34 +16,31 @@ import { StackItem } from '../theme';
   templateUrl: './stack.component.html',
   styleUrls: ['./stack.component.scss'],
   standalone: true,
-  imports: [MatCardModule, CommonModule, IonLabel, IonSegment, IonSegmentButton, IonChip, DataTablesModule,HttpClientModule],
+  imports: [MatCardModule, CommonModule, IonLabel, IonSegment, IonSegmentButton, IonChip, DataTablesModule],
+  providers: [DataForTableService]
 })
 
 export class StackComponent implements OnInit, OnDestroy {
   @ViewChild(DataTableDirective, { static: false })
   dtElement!: DataTableDirective;
 
-  dtOptions: any = {};
+  dtOptions: any = configTable;
   dtTrigger: Subject<any> = new Subject();
-  stacksData: StackItem[] = [];
+  stacksData: ItemData[] = [];
   error: any;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(public verDetalleService: VerDetalleService, private dataForTableService: DataForTableService ) {}
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
-      destroy: true,
-    };
 
-    this.stackQuery();
+
+
+    this.loadData();
   }
 
-  stackQuery() {
+  loadData() {
     const body = { type: "Stack"}
-    this.http.post<StackItem[]>('http://localhost:8080/api/registros/buscarPorTipo',body)
+    this.dataForTableService.obtenerRegistroPorTipo(body)
       .subscribe(
         async (response) => {
           this.stacksData = response;
@@ -62,9 +60,7 @@ export class StackComponent implements OnInit, OnDestroy {
       );
   }
 
-  verDetalle({ type, id }: { type: string, id: string }) {
-    this.router.navigate([`/folder/stack/${type}/${id}`]);
-  }
+
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();

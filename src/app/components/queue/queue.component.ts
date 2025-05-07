@@ -1,40 +1,36 @@
 
-import { Component, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router} from '@angular/router'; 
 import { MatCardModule } from '@angular/material/card';
 import { Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { IonLabel, IonSegment, IonSegmentButton, IonChip } from '@ionic/angular/standalone';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { HttpClientModule } from '@angular/common/http';
-import { DataForTables } from '../core/dataForTables';
-import { itemData } from '../interfaces/item-data.interface';
+import { DataForTableService } from 'src/app/services/data-for-table.service';
+import { ItemData } from 'src/app/interfaces/item-data.interface';
+import { VerDetalleService } from 'src/app/services/ver-detalle.service';
+import { configTable } from 'src/app/core/dataTable.config';
 
 @Component({
   selector: 'app-queue',
   templateUrl: './queue.component.html',
   styleUrls: ['./queue.component.scss'],
   standalone: true,
-  imports: [MatCardModule, CommonModule, IonLabel, IonSegment, IonSegmentButton, IonChip, DataTablesModule,HttpClientModule]
+  imports: [MatCardModule, CommonModule, IonLabel, IonSegment, IonSegmentButton, IonChip, DataTablesModule],
+  providers: [DataForTableService]
 })
 export class QueueComponent  implements OnInit {
   @ViewChild(DataTableDirective, { static: false })
   dtElement!: DataTableDirective;
 
-  dtOptions: any = {};
+  dtOptions: any = configTable;
   dtTrigger: Subject<any> = new Subject();
-  stacksData: itemData[] = [];
+  stacksData: ItemData[] = [];
   error: any;
 
-  constructor(private router: Router,private dataForTableService: DataForTables) {}
+  constructor(private dataForTableService: DataForTableService, public verDetalleService: VerDetalleService) {}
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
-      destroy: true,
-    };
 
     this.stackQuery();
   }
@@ -59,10 +55,6 @@ export class QueueComponent  implements OnInit {
           this.error = error;
         }
       );
-  }
-
-  verDetalle({ type, id }: { type: string, id: string }) {
-    this.router.navigate([`/folder/queue/${type}/${id}`]);
   }
 
   ngOnDestroy(): void {

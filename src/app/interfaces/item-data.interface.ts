@@ -1,4 +1,4 @@
-export interface itemData {
+export interface ItemData {
     id: string;
     date: string;
     changes: string;
@@ -8,3 +8,4 @@ export interface itemData {
 export interface itemBodyData {
     type: string;
 }
+

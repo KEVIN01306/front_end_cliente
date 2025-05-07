@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
     { title: 'ejemplo', url: '/folder/ejemplo', icon: 'git-branch', active: false },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  private routerSubscription!: Subscription; // Inicialización definitiva
+  private routerSubscription!: Subscription;
 
   constructor(private router: Router) {
     addIcons(allIcons);

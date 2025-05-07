@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PilasColasComponent } from '../pilas-colas/pilas-colas.component';
-import { EjemploComponent } from '../ejemplo/ejemplo.component';
+import { PilasColasComponent } from '../../components/pilas-colas/pilas-colas.component';
+import { EjemploComponent } from '../../components/ejemplo/ejemplo.component';
 import { InfoPilasColasComponent } from '../info-pilas-colas/info-pilas-colas.component';
-import { StackComponent } from '../stack/stack.component';
-import { QueueComponent } from '../queue/queue.component';
-import { AlgorithmsComponent } from '../algorithms/algorithms.component';
+import { StackComponent } from '../../components/stack/stack.component';
+import { QueueComponent } from '../../components/queue/queue.component';
+import { AlgorithmsComponent } from '../../components/algorithms/algorithms.component';
 import { NgSwitch,NgSwitchCase,NgSwitchDefault } from '@angular/common';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,
   IonFab,
