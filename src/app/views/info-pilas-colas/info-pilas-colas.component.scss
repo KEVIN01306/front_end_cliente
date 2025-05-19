@@ -15,7 +15,6 @@ ion-col {
 }
 
 .carrusel .grande {
-    width: 400%;
     background-color: transparent;
     border-radius: 15px;
 
@@ -28,13 +27,20 @@ ion-col {
     transform: translateX(0%);
 }
 
-.carrusel img {
+.carrusel .container-img {
+    position: relative;
     width: calc(100% / 4 - 2.5em);
-
+    max-height: 285px;
     background-color: transparent;
     box-shadow: 5px 5px 15px rgb(224, 224, 224);
 
     border-radius: 15px;
+}
+
+.carrusel .container-img img {
+    position: relative;
+    max-height: 285px;
+    width: auto;
 }
 
 .carrusel .puntos{

@@ -5,7 +5,17 @@ export interface ItemData {
     type: string;
 }
 
-export interface itemBodyData {
+export interface ItemImage {
+    registro_id: string;
+    imagen: string;
+}
+
+export interface ItemBodyDataType {
     type: string;
 }
+
+export interface ItemBodyDataId {
+    id: string;
+}
+
 

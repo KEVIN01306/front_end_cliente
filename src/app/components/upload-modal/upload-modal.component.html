@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Subir Archivo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Archivo</ion-label>
+    <input type="file" (change)="onFileChange($event)" />
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="uploadFile()" [disabled]="!selectedFile">
+    Cargar
+  </ion-button>
+</ion-content>
