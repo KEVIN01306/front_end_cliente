@@ -15,7 +15,7 @@ export class DataForTableService {
     constructor(private http: HttpClient) {}
 
     obtenerRegistroPorTipo(body: itemBodyData): Observable<ItemData[]>{
-        return this.http.post<ItemData[]>(this.dominio+ "/api/registros/buscarPorTipo",body)
+        return this.http.get<ItemData[]>(this.dominio+ "/api/registros/buscarPorTipo?type="+body.type)
     }
 
 }
