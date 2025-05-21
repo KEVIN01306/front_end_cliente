@@ -19,3 +19,8 @@ export interface ItemBodyDataId {
 }
 
 
+export interface ItemFile {
+    file: File;
+}
+
+
