@@ -14,7 +14,7 @@ export class LoadDataServiceService {
   upFile(item: ItemFile): Observable<any> {
     const formData = new FormData();
     formData.append('file', item.file);
-    return this.http.post(this.dominio + "/api/upload-csv", formData, { responseType: 'text' });
+    return this.http.post(this.dominio + "/api/upload-csv", formData);
   }
 
 

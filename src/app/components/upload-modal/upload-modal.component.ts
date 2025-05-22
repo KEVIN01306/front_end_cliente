@@ -28,8 +28,8 @@ export class UploadModalComponent {
           window.location.reload();
         },
         error: (err) => {
-          const msg = err.error?.message || '❌ Error inesperado';
-          this.textResponseElement.nativeElement.innerText = msg;
+          const msg = err.error.message || '❌ Error inesperado';
+          alert('❌ '+msg)
         }
       });
     }
